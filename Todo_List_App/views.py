@@ -23,3 +23,16 @@ def home_page(response):
         ]
     context = {"name":"Home Page","persons":person}
     return render(response,'home_page.html',context)
+
+def about(response):
+    context = {"name":"This app was made by niraj"}
+    return render(response,'about.html',context)
+
+def contact(response):
+    context = {"name":"contact page"}
+    return render(response,'contact.html',context)
+
+def index(response):
+    context = {"name":"index page"}
+    return render(response,'index.html',context)
+    
