@@ -6,15 +6,15 @@ def home_page(response):
     person = [
         {
             "name": "Ram",
-            "age":23,
+            "age":43,
         },
         {
             "name": "Sita",
-            "age":23,
+            "age":63,
         },
         {
             "name": "GIta",
-            "age":23,
+            "age":8,
         },
         {
             "name": "Rita",
@@ -29,7 +29,15 @@ def about(response):
     return render(response,'about.html',context)
 
 def contact(response):
-    context = {"name":"contact page"}
+    contacts = [
+        {"name":"Ram","Phone":9808978900},
+        {"name":"Shyam","Phone":89898989},
+        {"name": "Alice", "number": 12345},
+        {"name": "Bob", "number": 67890},
+        {"name": "Charlie", "number": 54321},
+        {"name": "Diana", "number": 98765}
+    ]
+    context = {"name":"contact page","contact":contacts}
     return render(response,'contact.html',context)
 
 def index(response):

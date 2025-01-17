@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo_List_App</title>
-    {{name}}
-</head>
-<body>
-    <table>
-        <thead>
-            <th>S.N</th>
-            <th>Name</th>
-            <th>Age</th>
-        </thead>
+{% block title %}Home_Page{% endblock title %}
 
-        {% for person in persons %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{person.name}}</td>
-            <td>{{person.age}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% block body %}
+<h1> {{name}}</h1>
+<table border = 1>
+    <thead>
+        <th>S.N.</th>
+        <th>Name</th>
+        <th>Age</th>
+    </thead>
+    {% for person in persons %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{person.name}}</td>
+        <td>
+            {% if person.age < 18 %}
+            Young
+            {% elif person.age > 18 and person.age < 35 %}
+            Adult
+            {% else %}
+            Old
+            {% endif %}
+            {{person.age}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>    
+
+
+{% endblock body %}
