@@ -4,11 +4,13 @@
 
 
 {% block body %} 
-{{name}} 
+<h1>{{name}}</h1> 
 
-<table>
-    
-</table>
+{% for contacts in contact %}
+<li>
+    Name = {{contacts.name}} ,Phone = {{contacts.Phone}}
+</li>
+{% endfor %}
 
 
 {% endblock body %} 

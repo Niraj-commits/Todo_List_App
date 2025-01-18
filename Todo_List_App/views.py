@@ -32,12 +32,12 @@ def contact(response):
     contacts = [
         {"name":"Ram","Phone":9808978900},
         {"name":"Shyam","Phone":89898989},
-        {"name": "Alice", "number": 12345},
-        {"name": "Bob", "number": 67890},
-        {"name": "Charlie", "number": 54321},
-        {"name": "Diana", "number": 98765}
+        {"name": "Alice", "Phone": 12345},
+        {"name": "Bob", "Phone": 67890},
+        {"name": "Charlie", "Phone": 54321},
+        {"name": "Diana", "Phone": 98765}
     ]
-    context = {"name":"contact page","contact":contacts}
+    context = {"name":"Contact Page","contact":contacts}
     return render(response,'contact.html',context)
 
 def index(response):
