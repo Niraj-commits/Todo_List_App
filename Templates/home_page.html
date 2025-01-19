@@ -1,4 +1,5 @@
-{% block title %}Home_Page{% endblock title %}
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock title %}
 
 {% block body %}
 <h1> {{name}}</h1>
@@ -25,6 +26,4 @@
     </tr>
     {% endfor %}
 </table>    
-
-
 {% endblock body %}

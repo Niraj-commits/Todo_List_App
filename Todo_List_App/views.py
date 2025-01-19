@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 # Create your views here.
-def home_page(response):
+def home_page(request):
     person = [
         {
             "name": "Ram",
@@ -22,13 +23,13 @@ def home_page(response):
         },
         ]
     context = {"name":"Home Page","persons":person}
-    return render(response,'home_page.html',context)
+    return render(request,'home_page.html',context)
 
-def about(response):
+def about(request):
     context = {"name":"This app was made by niraj"}
-    return render(response,'about.html',context)
+    return render(request,'about.html',context)
 
-def contact(response):
+def contact(request):
     contacts = [
         {"name":"Ram","Phone":9808978900},
         {"name":"Shyam","Phone":89898989},
@@ -38,9 +39,15 @@ def contact(response):
         {"name": "Diana", "Phone": 98765}
     ]
     context = {"name":"Contact Page","contact":contacts}
-    return render(response,'contact.html',context)
+    return render(request,'contact.html',context)
 
-def index(response):
+def index(request):
     context = {"name":"index page"}
-    return render(response,'index.html',context)
+    return render(request,'index.html',context)
     
+
+def task(request):
+    
+    task = todo_list.objects.all()
+    context = {"tasks":task}
+    return render(request,'task.html',context)
