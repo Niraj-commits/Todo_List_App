@@ -1,56 +1,30 @@
 
 {% extends "base.html" %}
 
+{% block title %}Tasks{% endblock title %}
+
 {% block body %}
 
-{% block create_task %}{% endblock create_task %}
+<div class="container">
 
-
- <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Create Task
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade m-4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create New Task</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            Name: <input type="text" class="form-control">
-            Description: <input type="text" class="form-control mb-8" >
-            Status : <input type="radio" class = "mt-8">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Add Task</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-{% comment %} Data Table {% endcomment %}
-<table class="table mt-2">
+  <table class="table mt-2">
     <thead>
       <tr>
         <th scope="col">S.N.</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Status</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       {% for task in tasks %}
       <tr>
-          <th scope="row">{{forloop.counter}}</th>
-          <td>{{task.Name}}</td>
-          <td>{{task.Description}}</td>
-          <td>
-            {% if task.status %}
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{task.Name}}</td>
+        <td>{{task.Description}}</td>
+        <td>
+          {% if task.status %}
             <span class = 'text-success'>Task Completed</span>
 
             {% else %}
@@ -58,10 +32,22 @@
             {% endif %}
             {{task.status}}
           </td>
+          <td>
+            <button type="button" class="btn btn-primary" name="edit" >
+              Edit
+            </button>
+            <button type="button" class="btn btn-success" name="finish" >
+              Finish
+            </button>
+            <button type="button" class="btn btn-danger" name="delete" >
+              Delete
+            </button>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
-
-
+</div>
+  
+  
 {% endblock body %}
