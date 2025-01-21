@@ -5,8 +5,9 @@
 
 {% block body %}
 
-<div class="container">
 
+<div class="container">
+  <a href="create/" class="btn btn-success" name="finish">Create Task</a>
   <table class="table mt-2">
     <thead>
       <tr>
@@ -14,7 +15,8 @@
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Status</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Task Action</th>
+        <th scope="col">Other Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -24,24 +26,20 @@
         <td>{{task.Name}}</td>
         <td>{{task.Description}}</td>
         <td>
-          {% if task.status %}
+          {% if task.Status %}
             <span class = 'text-success'>Task Completed</span>
 
             {% else %}
             <span class = 'text-danger'>Task Incomplete</span>
             {% endif %}
-            {{task.status}}
           </td>
           <td>
-            <button type="button" class="btn btn-primary" name="edit" >
-              Edit
-            </button>
-            <button type="button" class="btn btn-success" name="finish" >
-              Finish
-            </button>
-            <button type="button" class="btn btn-danger" name="delete" >
-              Delete
-            </button>
+            <a href="{{task.pk}}/" class="btn btn-success" name="finish">Finish</a>
+          </td>
+          <td>
+            <a href="{{task.pk}}/edit/" class="btn btn-primary" name="edit">Edit</a>
+            <a href="{{task.pk}}/delete/" class="btn btn-danger" name="delete">Delete</a>
+
           </td>
         </tr>
       {% endfor %}

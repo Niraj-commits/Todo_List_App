@@ -5,7 +5,8 @@ from django.db import models
 class todo_list(models.Model):
     Name = models.CharField( max_length=50)
     Description = models.TextField()
-    Status = models.BooleanField(default=True)
-    Completion_Time = models.DateTimeField(blank=False,null=True)
+    Status = models.BooleanField(default=False)
     Start_Time = models.DateTimeField(auto_now_add = True)
 
+    def __str__(self):
+        return self.Name

@@ -2,8 +2,26 @@
 {% extends "base.html" %}
 
 
+{% block title %}Edit task{% endblock title %}
+
+
 {% block body %}
 
+<div class="container m-4" >
 
-
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{tasks.Name}}"> 
+      <!-- #name stays as key in dict -->
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="exampleInputEmail1" name="description"> {{tasks.Description}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Task</button>
+  </form>
+</div>
+  
 {% endblock body %}
