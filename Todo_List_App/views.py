@@ -15,14 +15,14 @@ def create_tasks(request):
         name = request.POST.get('name') #returns data in dictionary as payload
         description = request.POST.get('description')
         todo_list.objects.create(Name= name,Description = description)
-        return redirect('/task')
+        return redirect('/')
     return render(request,'create.html')
 
 def change_status(request,pk):
     task = todo_list.objects.get(pk = pk)
     task.Status = True
     task.save()
-    return redirect('/task')
+    return redirect('/')
 
 def edit_task(request,pk):
     task = todo_list.objects.get(pk = pk)
@@ -33,11 +33,11 @@ def edit_task(request,pk):
         task.title = title
         task.description = description
         task.save()
-        return redirect('/task')
+        return redirect('/')
     return render(request,'edit.html',context)
         
 def delete_task(request,pk):
     task = todo_list.objects.get(pk = pk)
     context = {"tasks":task}
     task.delete()
-    return redirect('/task')
+    return redirect('/')
