@@ -33,7 +33,6 @@ def edit_task(request,pk):
         task.title = title
         task.description = description
         task.save()
-        return redirect('/')
     return render(request,'edit.html',context)
         
 def delete_task(request,pk):
