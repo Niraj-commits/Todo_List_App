@@ -28,11 +28,12 @@ def edit_task(request,pk):
     task = todo_list.objects.get(pk = pk)
     context = {"tasks":task}
     if request.method == "POST":
-        title = request.POST.get('title')
+        name = request.POST.get('name')
         description = request.POST.get('description')
-        task.title = title
-        task.description = description
+        task.Name = name
+        task.Description = description
         task.save()
+        return redirect('/')
     return render(request,'edit.html',context)
         
 def delete_task(request,pk):
