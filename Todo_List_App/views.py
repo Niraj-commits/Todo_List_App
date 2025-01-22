@@ -38,6 +38,5 @@ def edit_task(request,pk):
         
 def delete_task(request,pk):
     task = todo_list.objects.get(pk = pk)
-    context = {"tasks":task}
     task.delete()
     return redirect('/')
